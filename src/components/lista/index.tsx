@@ -1,27 +1,24 @@
+import { Itarefa } from '../../types/iTarefas';
 import style from './Lista.module.scss';
 import Item from './item';
 
-const Lista = () => {
-    const itens = [
-        {
-            tarefa: "JavaScript",
-            tempo: "00:35:00"
-        },
-        {
-            tarefa: "TypeScript",
-            tempo: "01:00:00"
-        }
-    ]
+export default function Lista({ tarefas }: { tarefas: Itarefa[] }) {
     return (
         <aside className={style.listaTarefas}>
             <h2>Lista a estudar</h2>
             <ul>
-                {itens.map((item, index) => (
-                    <Item key={index} tarefa={item.tarefa} tempo={item.tempo} />
+                {tarefas.map((item, index) => (
+                    <Item
+                        key={index}
+                        tarefa={item.tarefa}
+                        tempo={item.tempo}
+                        completado={item.completado}
+                        selecionado={item.selecionado}
+                        id={item.id}
+                    />
                 ))}
             </ul>
         </aside>
     )
 }
 
-export default Lista;
