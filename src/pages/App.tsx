@@ -16,14 +16,14 @@ function App() {
     ({
       ...item, 
       selecionado: item.id === itemSelecionado.id ? true : false
-    })))
+    }) ))
   }
 
   return (
     <div className={style.AppStyle}>
       <Formulario setItens={setItens} />
       <Lista tarefas={itens} selecionaTarefa={selecionaTarefa} />
-      <Cronometro />
+      <Cronometro selecionado={selecionado} />
     </div>
   );
 }
